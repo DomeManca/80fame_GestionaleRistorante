@@ -122,11 +122,11 @@ namespace _80fame
         }
         private void btVMODPASS_Click(object sender, EventArgs e)
         {
-            if (tbVPASS.Text == leggi(@"./login.txt"))
+            if (tbVPASS.Text == leggi(@"./menu/login.txt"))
             {
                 if (tbPASS1.Text == tbPASS2.Text)
                 {
-                    scrivi(@"./login.txt", tbPASS1.Text);
+                    scrivi(@"./menu/login.txt", tbPASS1.Text);
                     MessageBox.Show("Password cambiata correttamente", "Successo");
                     tbVPASS.Text = "";
                     tbPASS1.Text = "";

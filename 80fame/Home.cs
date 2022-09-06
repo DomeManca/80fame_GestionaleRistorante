@@ -19,7 +19,7 @@ namespace _80fame
         {
             InitializeComponent();
         }
-        string ps = leggi(@"./login.txt");
+        string ps = leggi(@"./menu/login.txt");
         static string leggi(string filename)
         {
             StreamReader sr = new StreamReader(filename);
@@ -43,6 +43,14 @@ namespace _80fame
         private void HOME_Load(object sender, EventArgs e)
         {
             Reset();
+            if (File.Exists(@"./menu"))
+            {
+            }
+            else
+            {
+                MessageBox.Show("Seguire le indicazioni del file README.md", "Errore");
+                Application.Exit();
+            }
         }
         public void Reset()
         {
