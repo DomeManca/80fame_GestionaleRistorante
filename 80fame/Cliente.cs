@@ -17,12 +17,12 @@ namespace _80fame
         {
             InitializeComponent();
         }
-        public int tot = 0;
+        public float tot = 0;
         public int n = 0;
         public struct Piatto
         {
             public string nome;
-            public int prezzo;
+            public float prezzo;
             public int quantità;
         }
         Piatto[] ordini = new Piatto[50];
@@ -149,13 +149,13 @@ namespace _80fame
         {
             Piatto o;
             o.nome = lblNVIS.Text;
-            o.prezzo = int.Parse(lblPrVIS.Text);
+            o.prezzo = float.Parse(lblPrVIS.Text);
             o.quantità = Convert.ToInt32(nOR.Value);
             ordini[n] = o;
             n++;
             for (int i = o.quantità; i > 0; i--)
             {
-                tot += int.Parse(lblPrVIS.Text);
+                tot += float.Parse(lblPrVIS.Text);
                 lblTOR.Text = Convert.ToString(tot);
             }
             nOR.Value = 1;
@@ -294,8 +294,6 @@ namespace _80fame
                 if (ordini[i - 1].nome != "/")
                 {
                     f++;
-
-
                 }
             }
             return f;

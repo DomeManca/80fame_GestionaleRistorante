@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace _80fame
 {
@@ -32,7 +34,7 @@ namespace _80fame
         public struct Piatto
         {
             public string nome;
-            public int prezzo;
+            public float prezzo;
             public int quantità;
         }
         private void Proprietario_FormClosing(object sender, FormClosingEventArgs e)
@@ -159,6 +161,18 @@ namespace _80fame
             {
                 v = false;
                 MessageBox.Show("Inserire prezzo del piatto", "Errore");
+            }
+            else
+            {
+                try
+                {
+                    float a = float.Parse(tbPAGG.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Inserire prezzo del piatto con la virgola \n" + "Ad esempio: 12.50 o 11.00 \n" + "Tra le due cifre ci va il punto ", "Errore");
+                    v = false;
+                }
             }
             if (cbAGG.Text == string.Empty)
             {
@@ -291,6 +305,18 @@ namespace _80fame
             {
                 v = false;
                 MessageBox.Show("Inserire prezzo del piatto", "Errore");
+            }
+            else
+            {
+                try
+                {
+                    float a = float.Parse(tbPAGG.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Inserire prezzo del piatto con la virgola \n" + "Ad esempio: 12.50 o 11.00 \n" + "Tra le due cifre ci va il punto ", "Errore");
+                    v = false;
+                }
             }
             if (cbMOD.Text == string.Empty)
             {
@@ -525,7 +551,7 @@ namespace _80fame
             Reset();
             pnUO.Visible = true;
             pnUO.Location = new System.Drawing.Point(138, 64);
-            int tot = 0;
+            float tot = 0;
             Piatto[] vecchiordini = new Piatto[50];
             if (File.Exists(@".\menu\ordine.txt"))
             {
